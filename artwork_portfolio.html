@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collin Clair</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #f5f3ed;
+            color: #2a2a2a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 30px;
+        }
+
+        header {
+            margin-bottom: 60px;
+            text-align: center;
+            padding: 40px 0;
+            border-top: 4px solid #2a2a2a;
+            border-bottom: 4px solid #2a2a2a;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #5fd4a0;
+            text-shadow: 4px 4px 0px #2a2a2a;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #2a2a2a;
+            font-weight: normal;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+
+        .post-card {
+            border: 3px solid #2a2a2a;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .post-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .post-card:nth-child(1) { background: #d4b5a0; }
+        .post-card:nth-child(2) { background: #a8c5d1; }
+        .post-card:nth-child(3) { background: #e8d5b7; }
+        .post-card:nth-child(4) { background: #c4b5a8; }
+        .post-card:nth-child(5) { background: #b5c5b8; }
+        .post-card:nth-child(6) { background: #d5b8c4; }
+        .post-card:nth-child(7) { background: #c5d1b8; }
+        .post-card:nth-child(8) { background: #b8c4d1; }
+        .post-card:nth-child(9) { background: #d1c5a8; }
+
+        .post-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: #e8dcc8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5a5a5a;
+            font-size: 0.85rem;
+            border-bottom: 3px solid #2a2a2a;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+            overflow: hidden;
+        }
+
+        .post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .post-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post-date {
+            font-size: 0.7rem;
+            color: #5a5a5a;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .post-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #3a4a6a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .post-caption {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            flex-grow: 1;
+            color: #2a2a2a;
+        }
+
+        .spotify-card {
+            border: 3px solid #2a2a2a;
+            position: relative;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+            overflow: hidden;
+        }
+
+        .spotify-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .spotify-card:nth-child(3n+1) { background: #e8b5a8; }
+        .spotify-card:nth-child(3n+2) { background: #a8b5e8; }
+        .spotify-card:nth-child(3n) { background: #b5e8c4; }
+
+        .spotify-card iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 352px;
+            border: none;
+            display: block;
+        }
+
+        .text-card {
+            border: 3px solid #2a2a2a;
+            position: relative;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .text-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .text-card:nth-child(5n+1) { background: #d4c5a8; }
+        .text-card:nth-child(5n+2) { background: #a8d4c5; }
+        .text-card:nth-child(5n+3) { background: #c5a8d4; }
+        .text-card:nth-child(5n+4) { background: #d4a8b5; }
+        .text-card:nth-child(5n) { background: #b5d4a8; }
+
+        .text-card .post-date {
+            margin-bottom: 15px;
+        }
+
+        .text-card .post-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .text-card p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            color: #2a2a2a;
+        }
+
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border: 4px solid #5fd4a0;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #5fd4a0;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 30px 0;
+            border-top: 4px solid #2a2a2a;
+            font-size: 0.8rem;
+            color: #5a5a5a;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        footer a {
+            color: #3a4a6a;
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: #6b4a6a;
+        }
+
+        @media (max-width: 900px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+                letter-spacing: 4px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Collin Clair</h1>
+            <p class="subtitle">sf</p>
+        </header>
+
+        <main>
+            <div class="gallery">
+                <!-- Image Post -->
+                <div class="post-card" onclick="openLightbox(this)">
+                    <div class="post-image">
+                        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=800&fit=crop" alt="Studio Study">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-date">01 / 15 / 2024</div>
+                        <div class="post-title">Studio Study No. 1</div>
+                        <div class="post-caption">Working through color relationships. Oil on panel.</div>
+                    </div>
+                </div>
+
+                <!-- Image Post -->
+                <div class="post-card" onclick="openLightbox(this)">
+                    <div class="post-image">
+                        <img src="https://via.placeholder.com/600" alt="Afternoon Light">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-date">01 / 14 / 2024</div>
+                        <div class="post-title">Afternoon Light</div>
+                        <div class="post-caption">Caught this moment in the studio yesterday. The light was perfect.</div>
+                    </div>
+                </div>
+
+                <!-- Spotify Card -->
+                <div class="spotify-card">
+                    <iframe src="https://open.spotify.com/embed/playlist/6olrxrAWmkAN0tC4risOCl" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+
+                <!-- Image Post -->
+                <div class="post-card" onclick="openLightbox(this)">
+                    <div class="post-image">
+                        <img src="https://via.placeholder.com/600" alt="Coastal Fragment">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-date">01 / 12 / 2024</div>
+                        <div class="post-title">Coastal Fragment</div>
+                        <div class="post-caption">From last week's trip to the coast. Still processing these.</div>
+                    </div>
+                </div>
+
+                <!-- Text Post -->
+                <div class="text-card">
+                    <div class="post-date">01 / 10 / 2024</div>
+                    <div class="post-title">On Working Across Mediums</div>
+                    <p>I don't really think of painting, photography, and music as separate practices. They're all just different ways of paying attention.</p>
+                    <p>When I'm stuck on a canvas, I pick up my camera. The label matters less than the practice.</p>
+                </div>
+
+                <!-- Image Post -->
+                <div class="post-card" onclick="openLightbox(this)">
+                    <div class="post-image">
+                        <img src="https://via.placeholder.com/600" alt="Sketch Studies">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-date">01 / 08 / 2024</div>
+                        <div class="post-title">Sketch Studies</div>
+                        <div class="post-caption">Quick drawings from the notebook. Practice in looking.</div>
+                    </div>
+                </div>
+
+                <!-- Image Post -->
+                <div class="post-card" onclick="openLightbox(this)">
+                    <div class="post-image">
+                        <img src="https://via.placeholder.com/600" alt="Evening Study">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-date">01 / 05 / 2024</div>
+                        <div class="post-title">Evening Study</div>
+                        <div class="post-caption">Small painting from yesterday evening. Trying to capture the quality of winter light.</div>
+                    </div>
+                </div>
+
+                <!-- Image Post -->
+                <div class="post-card" onclick="openLightbox(this)">
+                    <div class="post-image">
+                        <img src="https://via.placeholder.com/600" alt="Interior No. 3">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-date">01 / 02 / 2024</div>
+                        <div class="post-title">Interior No. 3</div>
+                        <div class="post-caption">Mixed media piece exploring space and memory.</div>
+                    </div>
+                </div>
+
+                <!-- Text Post -->
+                <div class="text-card">
+                    <div class="post-date">12 / 28 / 2023</div>
+                    <div class="post-title">New Year Thoughts</div>
+                    <p>Looking back at this year's work, I'm noticing patterns I wasn't aware of while making it. That's the interesting part—you don't always know what you're working on until it's done.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>collin clair © 2026</p>
+            <p><a href="mailto:collinc711@gmail.com">email</a> | <a href="https://open.spotify.com/user/nilloc888?si=cb5e0df01e4647da">spotify</a> | <a href="#">contact</a></p>
+        </footer>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">×</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+        function openLightbox(card) {
+            const img = card.querySelector('.post-image img');
+            if (img) {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+            }
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+
+        // Close lightbox on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
