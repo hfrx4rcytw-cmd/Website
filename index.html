@@ -103,7 +103,7 @@
 
         .post-image {
             width: 100%;
-            aspect-ratio: 1;
+            height: 250px;
             background: #e8dcc8;
             display: flex;
             align-items: center;
@@ -114,6 +114,17 @@
             font-family: 'Courier New', monospace;
             letter-spacing: 2px;
             overflow: hidden;
+        }
+        .post-card.large .post-image {
+        height: 300px;
+        }
+
+        .post-card.tall .post-image {
+        height: 520px;
+        }
+
+        .post-card.large.tall .post-image {
+       height: 520px;
         }
 
         .post-image img {
