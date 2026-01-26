@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/jpeg" href="favicon.jpg">
     <title>Collin Clair</title>
-    <style>
+    
+   <style>
         * {
             margin: 0;
             padding: 0;
@@ -52,32 +53,29 @@
         }
 
         .gallery {
-             display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    grid-auto-rows: minmax(280px, auto);
-    gap: 20px;
-    margin-bottom: 80px;
-}
-        
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-auto-rows: 280px;
+            gap: 20px;
+            margin-bottom: 80px;
+        }
 
         .post-card {
-    border: 3px solid #2a2a2a;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s;
-    cursor: pointer;
-    height: 100%;  /* ← ADD THIS */
-}
+            border: 3px solid #2a2a2a;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
 
-.post-card.large {
-    grid-column: span 2;
-}
+        .post-card.large {
+            grid-column: span 2;
+        }
 
-.post-card.tall {
-    height: 580px;  /* Double height for tall cards (280px × 2 + 20px gap) */
-}
-
+        .post-card.tall {
+            grid-row: span 2;
+        }
 
         .post-card:hover {
             transform: translateY(-3px);
@@ -92,33 +90,39 @@
         .post-card:nth-child(7) { background: #c5d1b8; }
         .post-card:nth-child(8) { background: #b8c4d1; }
         .post-card:nth-child(9) { background: #d1c5a8; }
+        .post-card:nth-child(10) { background: #d4b5a0; }
+        .post-card:nth-child(11) { background: #a8c5d1; }
+        .post-card:nth-child(12) { background: #e8d5b7; }
+        .post-card:nth-child(13) { background: #c4b5a8; }
+        .post-card:nth-child(14) { background: #b5c5b8; }
+        .post-card:nth-child(15) { background: #d5b8c4; }
 
         .post-image {
-           width: 100%;
-            height: 280px;
-    flex: 1;  
-    background: #e8dcc8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #5a5a5a;
-    font-size: 0.85rem;
-    border-bottom: 3px solid #2a2a2a;
-    font-family: 'Courier New', monospace;
-    letter-spacing: 2px;
-    overflow: hidden;
+            width: 100%;
+            flex: 1;
+            background: #e8dcc8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5a5a5a;
+            font-size: 0.85rem;
+            border-bottom: 3px solid #2a2a2a;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+            overflow: hidden;
+            min-height: 0;
         }
 
         .post-image img {
-     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .post-content {
             padding: 20px;
-            flex-grow: 1;
+            flex-shrink: 0;
             display: flex;
             flex-direction: column;
         }
@@ -143,7 +147,6 @@
         .post-caption {
             font-size: 0.85rem;
             line-height: 1.5;
-            flex-grow: 1;
             color: #2a2a2a;
         }
 
@@ -304,7 +307,7 @@
                 padding: 30px 20px;
             }
         }
-    </style>
+</style>
 </head>
 <body>
     <div class="container">
