@@ -55,7 +55,7 @@
         .gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-auto-rows: 450px;
+            grid-auto-rows: 470px;
             gap: 20px;
             margin-bottom: 80px;
         }
@@ -96,6 +96,12 @@
         .post-card:nth-child(8) { background: #b8c4d1; }
         .post-card:nth-child(9) { background: #d1c5a8; }
 
+        .post-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        max-width: 50%;
+        margin: 0 auto;
+        }
+
         .post-image {
             width: 100%;
             height: 330px;
@@ -120,7 +126,7 @@
         }
 
         .post-content {
-            padding: 20px;
+            padding: 15px 20px;
             display: flex;
             flex-direction: column;
         }
@@ -230,6 +236,41 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
+        }
+
+            .lightbox-info {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px 30px;
+            border: 3px solid #5fd4a0;
+            max-width: 600px;
+            text-align: center;
+        }        
+
+        .lightbox-date {
+            font-size: 0.7rem;
+            color: #5fd4a0;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lightbox-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .lightbox-caption {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            line-height: 1.5;
         }
 
         .lightbox.active {
@@ -447,8 +488,13 @@
 
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close">×</span>
-        <img id="lightbox-img" src="" alt="">
+    <span class="lightbox-close">×</span>
+    <img id="lightbox-img" src="" alt="">
+        <div class="lightbox-info">
+            <div class="lightbox-date" id="lightbox-date"></div>
+            <div class="lightbox-title" id="lightbox-title"></div>
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
     </div>
 
     <script>
@@ -457,11 +503,19 @@
             if (img) {
                 const lightbox = document.getElementById('lightbox');
                 const lightboxImg = document.getElementById('lightbox-img');
+                const date = card.querySelector('.post-date')?.textContent || '';
+                const title = card.querySelector('.post-title')?.textContent || '';
+                const caption = card.querySelector('.post-caption')?.textContent || '';
+        
                 lightboxImg.src = img.src;
                 lightboxImg.alt = img.alt;
+                document.getElementById('lightbox-date').textContent = date;
+                document.getElementById('lightbox-title').textContent = title;
+                document.getElementById('lightbox-caption').textContent = caption;
+        
                 lightbox.classList.add('active');
+              }
             }
-        }
 
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
