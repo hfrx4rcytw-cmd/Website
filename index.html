@@ -11,7 +11,12 @@
 </head>
 <body>
     <div class="container">
-        <header>
+          <!-- Mailing List Bar -->
+    <div class="mailing-bar">
+        <span class="mailing-label">mailing list</span>
+        <script async data-uid="52e1a48b70" src="https://collin-clair.kit.com/52e1a48b70/index.js"></script>
+    </div>
+    <header>
             <h1>Collin Clair</h1>
             <p class="subtitle">sf</p>
         </header>
@@ -511,7 +516,108 @@
             }
         }
 
-   
+   /* ── Mailing bar ── */
+.mailing-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #d4c4b0;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.mailing-label {
+    font-size: 0.7rem;
+    color: #777;
+    letter-spacing: 3px;
+    text-transform: lowercase;
+    white-space: nowrap;
+}
+
+.mailing-bar .formkit-form {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.mailing-bar .formkit-form * {
+    font-family: 'Courier New', monospace !important;
+}
+
+.mailing-bar .formkit-fields {
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+
+.mailing-bar .formkit-field {
+    margin: 0 !important;
+}
+
+.mailing-bar input[type="email"] {
+    background: transparent !important;
+    border: 1px solid #d4c4b0 !important;
+    border-radius: 0 !important;
+    padding: 6px 12px !important;
+    font-family: 'Courier New', monospace !important;
+    font-size: 0.75rem !important;
+    color: #2a2a2a !important;
+    width: 200px !important;
+    outline: none !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: none !important;
+}
+
+.mailing-bar input[type="email"]::placeholder {
+    color: #aaa !important;
+}
+
+.mailing-bar input[type="email"]:focus {
+    border-color: #2a2a2a !important;
+}
+
+.mailing-bar button[type="submit"],
+.mailing-bar .formkit-submit {
+    background: transparent !important;
+    color: #2a2a2a !important;
+    border: 1px solid #d4c4b0 !important;
+    border-radius: 0 !important;
+    padding: 6px 14px !important;
+    font-family: 'Courier New', monospace !important;
+    font-size: 0.75rem !important;
+    cursor: pointer !important;
+    text-transform: lowercase !important;
+    letter-spacing: 0.5px !important;
+    white-space: nowrap !important;
+    transition: all 0.2s !important;
+    box-shadow: none !important;
+}
+
+.mailing-bar button[type="submit"]:hover,
+.mailing-bar .formkit-submit:hover {
+    border-color: #2a2a2a !important;
+    background: #2a2a2a !important;
+    color: #f5f3ed !important;
+}
+
+.mailing-bar .formkit-guarantee,
+.mailing-bar [data-element="guarantee"] {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .mailing-bar {
+        gap: 8px;
+    }
+    .mailing-bar input[type="email"] {
+        width: 160px !important;
+    }
+}
         
 </style>
         
