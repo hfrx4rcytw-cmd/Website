@@ -13,7 +13,10 @@
     <!-- Mailing List Bar -->
     <div class="mailing-bar">
         <span class="mailing-label">mailing list</span>
-        <script async data-uid="52e1a48b70" src="https://collin-clair.kit.com/52e1a48b70/index.js"></script>
+        <form action="https://app.kit.com/forms/9528977/subscriptions" method="post" target="_blank">
+            <input type="email" name="email_address" placeholder="your@email.com" required />
+            <button type="submit">subscribe</button>
+        </form>
     </div>
     <div class="container">
     <header>
@@ -542,101 +545,54 @@
     white-space: nowrap;
 }
 
-/* Kit form overrides */
-.mailing-bar .formkit-form,
-.mailing-bar form,
-.mailing-bar [data-sv-form] {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    border-radius: 0 !important;
-}
-
-.mailing-bar .formkit-form *,
-.mailing-bar form *,
-.mailing-bar [data-sv-form] * {
-    font-family: 'Courier New', monospace !important;
-    font-size: 0.75rem !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-}
-
-.mailing-bar .formkit-fields,
-.mailing-bar .seva-fields {
-    display: flex !important;
-    gap: 8px !important;
-    align-items: center !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-}
-
-.mailing-bar .formkit-field,
-.mailing-bar .seva-field {
-    margin: 0 !important;
-    padding: 0 !important;
+.mailing-bar form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .mailing-bar input[type="email"] {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: 1px solid #d4c4b0 !important;
-    border-radius: 0 !important;
-    padding: 6px 12px !important;
-    font-family: 'Courier New', monospace !important;
-    font-size: 0.75rem !important;
-    color: #2a2a2a !important;
-    width: 200px !important;
-    outline: none !important;
-    letter-spacing: 0.5px !important;
-    box-shadow: none !important;
-    text-transform: lowercase !important;
+    background: transparent;
+    border: 1px solid #d4c4b0;
+    border-radius: 0;
+    padding: 6px 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    color: #2a2a2a;
+    width: 200px;
+    outline: none;
+    letter-spacing: 0.5px;
 }
 
 .mailing-bar input[type="email"]::placeholder {
-    color: #aaa !important;
-    font-family: 'Courier New', monospace !important;
+    color: #aaa;
 }
 
 .mailing-bar input[type="email"]:focus {
-    border-color: #2a2a2a !important;
+    border-color: #2a2a2a;
 }
 
-.mailing-bar button[type="submit"],
-.mailing-bar .formkit-submit,
-.mailing-bar [data-element="submit"] button {
-    background: transparent !important;
-    background-color: transparent !important;
-    color: #2a2a2a !important;
-    border: 1px solid #d4c4b0 !important;
-    border-radius: 0 !important;
-    padding: 6px 14px !important;
-    font-family: 'Courier New', monospace !important;
-    font-size: 0.75rem !important;
-    cursor: pointer !important;
-    text-transform: lowercase !important;
-    letter-spacing: 0.5px !important;
-    white-space: nowrap !important;
-    transition: all 0.2s !important;
-    box-shadow: none !important;
+.mailing-bar button[type="submit"] {
+    background: transparent;
+    color: #2a2a2a;
+    border: 1px solid #d4c4b0;
+    border-radius: 0;
+    padding: 6px 14px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    transition: all 0.2s;
 }
 
-.mailing-bar button[type="submit"]:hover,
-.mailing-bar .formkit-submit:hover,
-.mailing-bar [data-element="submit"] button:hover {
-    border-color: #2a2a2a !important;
-    background: #2a2a2a !important;
-    background-color: #2a2a2a !important;
-    color: #f5f3ed !important;
-}
-
-.mailing-bar .formkit-guarantee,
-.mailing-bar [data-element="guarantee"],
-.mailing-bar .formkit-powered-by,
-.mailing-bar .formkit-alert {
-    display: none !important;
+.mailing-bar button[type="submit"]:hover {
+    border-color: #2a2a2a;
+    background: #2a2a2a;
+    color: #f5f3ed;
 }
 
 @media (max-width: 768px) {
