@@ -1243,7 +1243,14 @@
     <div id="lightbox-content"></div>
 </div>
 
-   <script async data-uid="52e1a48b70" src="https://collin-clair.kit.com/52e1a48b70/index.js"></script>
+   <script>
+    window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.src = 'https://collin-clair.kit.com/52e1a48b70/index.js';
+        s.setAttribute('data-uid', '52e1a48b70');
+        document.body.appendChild(s);
+    });
+   </script>
    <script>
         // Filter functionality
         const filterBtns = document.querySelectorAll('.filter-btn');
