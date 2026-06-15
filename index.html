@@ -218,6 +218,44 @@
             display: block;
         }
 
+        .post-image .corner-label {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.55);
+            letter-spacing: 2px;
+            text-transform: lowercase;
+            font-family: 'Courier New', monospace;
+            transition: opacity 0.25s;
+            pointer-events: none;
+        }
+
+        .post-image .overlay-fade {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.25s;
+            pointer-events: none;
+        }
+
+        .post-image .overlay-fade span {
+            color: #5fd4a0;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: lowercase;
+            font-family: 'Courier New', monospace;
+            border: 1px solid #5fd4a0;
+            padding: 5px 12px;
+        }
+
+        .post-card:hover .overlay-fade { opacity: 1; }
+        .post-card:hover .corner-label { opacity: 0; }
+
         .post-content {
             padding: 16px 20px;
             display: flex;
@@ -615,6 +653,8 @@
                 <div class="post-card large" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/blackberry.jpg" alt="blackberry">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">05 / 05 / 2026</div>
@@ -627,6 +667,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/production.line.jpg" alt="production line">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">04 / 27 / 2026</div>
@@ -639,6 +681,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/perpetual.pursuit.of.childlike.wonder.jpg" alt="perpetual pursuit of childlike wonder">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">04 / 26 / 2026</div>
@@ -651,6 +695,8 @@
                 <div class="post-card tall" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/lumberjack.jpg" alt="lumberjack">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">04 / 09 / 2026</div>
@@ -663,6 +709,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/nook.jpg" alt="nook">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">04 / 08 / 2026</div>
@@ -675,6 +723,8 @@
                 <div class="post-card tall" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/a.west.village.wash.jpg" alt="a west village wash">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">03 / 13 / 2026</div>
@@ -692,6 +742,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/european.babble.at.the.mona.lisa.bar.jpg" alt="european babble at the mona lisa bar">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">01 / 13 / 2026 - 02 / 04 / 2026</div>
@@ -704,6 +756,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/half.full.glass.of.wine.jpg" alt="half full glass of wine">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">02 / 02 / 2026</div>
@@ -716,6 +770,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/the.cable.car.system.jpg" alt="the cable car system">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">01 / 13-20 / 2026</div>
@@ -740,6 +796,8 @@
                 <div class="post-card" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/the.lonesome.paradise.atop.russian.hill.jpg" alt="the lonesome paradise atop russian hill">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">12 / 01 / 2025 - 01 / 11 / 2026</div>
@@ -752,6 +810,8 @@
                 <div class="post-card" data-type="photo best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="photos/red.rack.jpg" alt="red rack">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">12 / 24 / 2025</div>
@@ -776,6 +836,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/bloody.departures.jpg" alt="bloody departures">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">11 / 21 / 2025</div>
@@ -788,6 +850,8 @@
                 <div class="post-card" data-type="photo" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="photos/product.placement.jpeg" alt="product placement">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">11 / 14 / 2025</div>
@@ -800,6 +864,8 @@
                 <div class="post-card large tall" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/the.depths.of.haze.jpg" alt="the depths of haze">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">10 / 6 / 2025 - 11 / 18 / 2025</div>
@@ -812,6 +878,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/weeping.sunshine.jpg" alt="Weeping Sunshine">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">10 / 25 / 2025</div>
@@ -824,6 +892,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/lyon.st.steps.jpg" alt="Lyon st steps">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">10 / 1-4 / 2025</div>
@@ -836,6 +906,8 @@
                 <div class="post-card large tall" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/city.squalor.jpg" alt="city squalor">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">10 / 2025</div>
@@ -848,6 +920,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/washington.sq.feeding.frenzy.jpg" alt="washington sq feeding frenzy">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">09 / 15 / 2025</div>
@@ -872,6 +946,8 @@
                 <div class="post-card" data-type="photo" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="photos/the.cowboy.jpeg" alt="the cowboy">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">09 / 07 / 2025</div>
@@ -884,6 +960,8 @@
                 <div class="post-card" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/tylers.dinner.jpg" alt="tylers dinner">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">09 / 06 / 2025</div>
@@ -896,6 +974,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/purple.sand.vine.jpg" alt="Purple Sand Vine">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">08 / 16 / 2025</div>
@@ -908,6 +988,8 @@
                 <div class="post-card large tall" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/grace.cathedral.jpg" alt="grace cathedral">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">11 / 2024 - 08 / 2025</div>
@@ -925,6 +1007,8 @@
                 <div class="post-card" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/dining.table.2.jpg" alt="dining table #2">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">08 / 04 / 2025</div>
@@ -937,6 +1021,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/union.and.leavenworth.jpg" alt="union and leavenworth">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">07 / 2025</div>
@@ -954,6 +1040,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/edge.of.bristol.harbor.jpg" alt="edge of bristol harbor pre-parade">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">06 / 29 / 2025</div>
@@ -966,6 +1054,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/marina.webster.and.jefferson.jpg" alt="marina webster & jefferson">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">05 / 2025 - 06 / 2025</div>
@@ -978,6 +1068,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/oceanside.jpg" alt="oceanside">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">05 / 24 - 26 / 2025</div>
@@ -995,6 +1087,8 @@
                 <div class="post-card large" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/chestnut.st.from.francisco.park.jpg" alt="chestnut st from francisco park">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">02 / 26 / 2025 - 03 / 20 / 2025</div>
@@ -1007,6 +1101,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/refurbished.window.jpg" alt="refurbished window">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">02 / 13 / 2025</div>
@@ -1024,6 +1120,8 @@
                 <div class="post-card" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/guac.deconstructed.jpg" alt="guac, deconstructed">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">12 / 15 - 16 / 2024</div>
@@ -1041,6 +1139,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/the.swinburne.house.jpg" alt="the swinburne house">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">09 / 2024</div>
@@ -1053,6 +1153,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/harlequin.house.jpg" alt="harlequin house">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">09 / 2024</div>
@@ -1065,6 +1167,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/the.point.jpg" alt="the point">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">08 / 20 / 2024</div>
@@ -1077,6 +1181,8 @@
                 <div class="post-card" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/three.bed.one.bath.jpg" alt="three bed one bath">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">07 / 18 / 2024</div>
@@ -1089,6 +1195,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/bus.stories.jpg" alt="Bus Stories">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">05 / 20 / 2024</div>
@@ -1106,6 +1214,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/christian.cookin.jpg" alt="christian cookin">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">03 / 05 / 2024</div>
@@ -1118,6 +1228,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/new.bar.new.taps.jpg" alt="new bar, new taps">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">02 / 25 / 2024</div>
@@ -1130,6 +1242,8 @@
                 <div class="post-card tall" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/los.duderinos.jpg" alt="los duderinos">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">12 / 10 / 2023</div>
@@ -1142,6 +1256,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/in.with.the.old.in.with.the.new.jpg" alt="in with the old in with the new">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">12 / 07 / 2023</div>
@@ -1154,6 +1270,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/vecina.bottles.jpg" alt="vecina bottles">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">11 / 2023 - 12 / 2023</div>
@@ -1166,6 +1284,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/ro.jpg" alt="ro">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">11 / 07 / 2023</div>
@@ -1178,6 +1298,8 @@
                 <div class="post-card tall" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/view.of.trinity.church.from.queen.anne.sq.on.a.crisp.fall.day.jpg" alt="view of trinity church from queen anne square on a crisp fall day">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">10 / 22 / 2023</div>
@@ -1190,6 +1312,8 @@
                 <div class="post-card" data-type="photo" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="photos/Collin Clair-Assignment 2 copy.jpg" alt="the weight">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">06 / 2023</div>
@@ -1202,6 +1326,8 @@
                 <div class="post-card large" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/split.suasalito.jpg" alt="split sausalito">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">06 / 20 - 22 / 2023</div>
@@ -1214,6 +1340,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/woods.hole.ma.jpg" alt="woods hole">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">12 / 23 - 29 / 2022</div>
@@ -1227,6 +1355,8 @@
                 <div class="post-card" data-type="art" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/wellington.ave.across.from.king.park.jpg" alt="wellington ave across from king park">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">12 / 16 / 2022</div>
@@ -1239,6 +1369,8 @@
                 <div class="post-card" data-type="photo" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="photos/self.portrait.1.jpg" alt="self portrait 1">
+                        <div class="overlay-fade"><span>view</span></div>
+                        <div class="corner-label">view</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">01 / 25 / 2026</div>
