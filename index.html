@@ -26,6 +26,7 @@
 
         <div class="filter-bar">
     <button class="filter-btn active" data-filter="all">stream of consciousness</button>
+    <button class="filter-btn" data-filter="best">best works</button>
     <button class="filter-btn" data-filter="art">art</button>
     <button class="filter-btn" data-filter="photo">photos</button>
     <button class="filter-btn" data-filter="text">babble</button>
@@ -611,7 +612,7 @@
             <div class="gallery">
 
                        <!-- Art Post -->
-                <div class="post-card tall" data-type="art" onclick="openLightbox(this)">
+                <div class="post-card tall" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/a.west.village.wash.jpg" alt="a west village wash">
                     </div>
@@ -676,7 +677,7 @@
                 </div>
 
                   <!-- Art Post -->
-                <div class="post-card" data-type="art" onclick="openLightbox(this)">
+                <div class="post-card" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/the.lonesome.paradise.atop.russian.hill.jpg" alt="the lonesome paradise atop russian hill">
                     </div>
@@ -688,7 +689,7 @@
                 </div>
 
                     <!-- Photo Post -->
-                <div class="post-card" data-type="photo" onclick="openLightbox(this)">
+                <div class="post-card" data-type="photo best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="photos/red.rack.jpg" alt="red rack">
                     </div>
@@ -736,7 +737,7 @@
                 </div>
                 
               <!-- Art Post -->
-                <div class="post-card large tall" data-type="art" onclick="openLightbox(this)">
+                <div class="post-card large tall" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/the.depths.of.haze.jpg" alt="the depths of haze">
                     </div>
@@ -772,7 +773,7 @@
                 </div>
 
                  <!-- Art Post -->
-                <div class="post-card large tall" data-type="art" onclick="openLightbox(this)">
+                <div class="post-card large tall" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/city.squalor.jpg" alt="city squalor">
                     </div>
@@ -820,7 +821,7 @@
                 </div>
 
                 <!-- Art Post -->
-                <div class="post-card" data-type="art" onclick="openLightbox(this)">
+                <div class="post-card" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/tylers.dinner.jpg" alt="tylers dinner">
                     </div>
@@ -844,7 +845,7 @@
                 </div>
 
                  <!-- Art Post -->
-                <div class="post-card large tall" data-type="art" onclick="openLightbox(this)">
+                <div class="post-card large tall" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/grace.cathedral.jpg" alt="grace cathedral">
                     </div>
@@ -861,7 +862,7 @@
                 </div>
 
                  <!-- Art Post -->
-                <div class="post-card" data-type="art" onclick="openLightbox(this)">
+                <div class="post-card" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/dining.table.2.jpg" alt="dining table #2">
                     </div>
@@ -960,7 +961,7 @@
                 </div>
                 
                   <!-- Art Post -->
-                <div class="post-card" data-type="art" onclick="openLightbox(this)">
+                <div class="post-card" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/guac.deconstructed.jpg" alt="guac, deconstructed">
                     </div>
@@ -1013,7 +1014,7 @@
                 </div>
 
                    <!-- Art Post -->
-                <div class="post-card" data-type="art" onclick="openLightbox(this)">
+                <div class="post-card" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/three.bed.one.bath.jpg" alt="three bed one bath">
                     </div>
@@ -1066,7 +1067,7 @@
                 </div>
 
                  <!-- Art Post -->
-                <div class="post-card tall" data-type="art" onclick="openLightbox(this)">
+                <div class="post-card tall" data-type="art best" onclick="openLightbox(this)">
                     <div class="post-image">
                         <img src="art/los.duderinos.jpg" alt="los duderinos">
                     </div>
@@ -1217,7 +1218,7 @@
                     if (filter === 'all') {
                         post.classList.remove('hidden');
                     } else {
-                        if (post.dataset.type === filter) {
+                        if (post.dataset.type.split(' ').includes(filter)) {
                             post.classList.remove('hidden');
                         } else {
                             post.classList.add('hidden');
