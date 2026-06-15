@@ -17,6 +17,7 @@
             <input type="email" name="email_address" placeholder="your@email.com" required />
             <button type="submit">subscribe</button>
         </form>
+        <button class="mailing-bar-close" onclick="this.closest('.mailing-bar').style.display='none'" aria-label="close">×</button>
     </div>
     <div class="container">
     <header>
@@ -255,6 +256,22 @@
 
         .post-card:hover .overlay-fade { opacity: 1; }
         .post-card:hover .corner-label { opacity: 0; }
+
+        .mailing-bar-close {
+            background: transparent;
+            border: none;
+            color: #999;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 0 0 0 8px;
+            font-family: 'Courier New', monospace;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .mailing-bar-close:hover {
+            color: #2a2a2a;
+        }
 
         .post-content {
             padding: 16px 20px;
