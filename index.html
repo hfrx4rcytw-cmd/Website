@@ -1545,21 +1545,20 @@
     <script>
         (function() {
             if (window.innerWidth > 768) return;
-            const cards = document.querySelectorAll('.post-card');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target.querySelector('.post-image img');
-                        if (!img) return;
-                        img.style.transition = 'filter 0.3s ease';
-                        img.style.filter = 'brightness(1.15)';
-                        setTimeout(() => {
-                            img.style.filter = 'brightness(1)';
-                        }, 700);
-                    }
-                });
-            }, { threshold: 0.35 });
-            cards.forEach(card => observer.observe(card));
+            document.querySelectorAll('.post-image img').forEach(img => {
+                img.addEventListener('touchstart', () => {
+                    img.style.transition = 'filter 0.15s ease';
+                    img.style.filter = 'brightness(1.2)';
+                }, { passive: true });
+                img.addEventListener('touchend', () => {
+                    img.style.transition = 'filter 0.4s ease';
+                    img.style.filter = 'brightness(1)';
+                }, { passive: true });
+                img.addEventListener('touchcancel', () => {
+                    img.style.transition = 'filter 0.4s ease';
+                    img.style.filter = 'brightness(1)';
+                }, { passive: true });
+            });
         })();
     </script>
 </body>
