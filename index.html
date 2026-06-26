@@ -303,12 +303,14 @@
             color: #2a2a2a;
             text-transform: lowercase;
             letter-spacing: 0.5px;
+            text-align: center;
         }
 
         .post-caption {
             font-size: 0.85rem;
             line-height: 1.5;
             color: #555;
+            text-align: center;
         }
 
         .spotify-card {
@@ -573,6 +575,10 @@
             .lightbox-close {
                 top: 16px;
                 right: 16px;
+            }
+
+            .post-image img {
+                filter: brightness(1);
             }
         }
 
@@ -1537,21 +1543,24 @@
         });
     </script>
     <script>
-        if (window.innerWidth <= 768) {
+        (function() {
+            if (window.innerWidth > 768) return;
+            const cards = document.querySelectorAll('.post-card');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('in-view');
+                        const img = entry.target.querySelector('.post-image img');
+                        if (!img) return;
+                        img.style.transition = 'filter 0.3s ease';
+                        img.style.filter = 'brightness(1.15)';
                         setTimeout(() => {
-                            entry.target.classList.remove('in-view');
-                            entry.target.classList.add('was-viewed');
-                        }, 600);
+                            img.style.filter = 'brightness(1)';
+                        }, 700);
                     }
                 });
-            }, { threshold: 0.4 });
-
-            document.querySelectorAll('.post-card').forEach(card => observer.observe(card));
-        }
+            }, { threshold: 0.35 });
+            cards.forEach(card => observer.observe(card));
+        })();
     </script>
 </body>
 </html>
