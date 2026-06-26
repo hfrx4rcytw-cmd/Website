@@ -660,7 +660,22 @@
         width: 150px !important;
     }
 }
-        
+
+@media (max-width: 768px) {
+    .post-image img {
+        transition: filter 0.4s ease;
+        filter: brightness(0.85);
+    }
+
+    .post-card.in-view .post-image img {
+        filter: brightness(1.1);
+    }
+
+    .post-card.was-viewed .post-image img {
+        filter: brightness(1);
+        transition: filter 0.8s ease;
+    }
+}
 </style>
         
         <main>
@@ -1520,6 +1535,23 @@
         document.querySelectorAll('.corner-label').forEach(label => {
             label.style.color = labelColors[Math.floor(Math.random() * labelColors.length)];
         });
+    </script>
+    <script>
+        if (window.innerWidth <= 768) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        setTimeout(() => {
+                            entry.target.classList.remove('in-view');
+                            entry.target.classList.add('was-viewed');
+                        }, 600);
+                    }
+                });
+            }, { threshold: 0.4 });
+
+            document.querySelectorAll('.post-card').forEach(card => observer.observe(card));
+        }
     </script>
 </body>
 </html>
