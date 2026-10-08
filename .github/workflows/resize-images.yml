@@ -1,0 +1,46 @@
+name: Auto-resize images
+
+on:
+  push:
+    paths:
+      - 'art/**'
+      - 'photos/**'
+
+jobs:
+  resize:
+    runs-on: ubuntu-latest
+    # GITHUB_TOKEN pushes don't re-trigger workflows, but guard explicitly too
+    if: github.actor != 'github-actions[bot]'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ImageMagick
+        run: sudo apt-get install -y imagemagick
+
+      - name: Resize oversized images
+        id: resize
+        run: |
+          changed=false
+          shopt -s nullglob
+          for f in art/*.jpg art/*.jpeg photos/*.jpg photos/*.jpeg; do
+            w=$(magick identify -format "%w" "$f[0]" 2>/dev/null)
+            h=$(magick identify -format "%h" "$f[0]" 2>/dev/null)
+            [[ -z "$w" || -z "$h" ]] && continue
+            long_edge=$(( w > h ? w : h ))
+            if (( long_edge > 2000 )); then
+              echo "Resizing: $f (${w}x${h})"
+              magick mogrify -resize '2000x2000>' -quality 82 -strip "$f"
+              changed=true
+            fi
+          done
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push resized images
+        if: steps.resize.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add art/ photos/
+          git commit -m "auto-resize images"
+          git push
